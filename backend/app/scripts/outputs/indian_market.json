@@ -1,0 +1,217 @@
+{
+  "plan": {
+    "subject": "Food delivery market in India",
+    "domain": "Food delivery",
+    "geography": "India",
+    "research_dimensions": [
+      "Market size",
+      "Market growth",
+      "Competition",
+      "Business models",
+      "Customers",
+      "Economics"
+    ],
+    "research_questions": [
+      {
+        "question_id": "q1",
+        "question": "What is the current size of the food delivery market in India?",
+        "research_dimension": "Market size",
+        "relevant_metrics": [
+          "Total addressable market (TAM)"
+        ]
+      },
+      {
+        "question_id": "q2",
+        "question": "What is the growth rate of the food delivery market in India?",
+        "research_dimension": "Market growth",
+        "relevant_metrics": [
+          "Market growth rate"
+        ]
+      },
+      {
+        "question_id": "q3",
+        "question": "Who are the major players in the food delivery market in India?",
+        "research_dimension": "Competition",
+        "relevant_metrics": [
+          "Number of active users"
+        ]
+      },
+      {
+        "question_id": "q4",
+        "question": "What are the typical business models used by food delivery companies in India?",
+        "research_dimension": "Business models",
+        "relevant_metrics": []
+      },
+      {
+        "question_id": "q5",
+        "question": "What are the demographics and preferences of customers using food delivery services in India?",
+        "research_dimension": "Customers",
+        "relevant_metrics": [
+          "Average order value (AOV)",
+          "Order frequency"
+        ]
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the key economic factors influencing the food delivery market in India?",
+        "research_dimension": "Economics",
+        "relevant_metrics": [
+          "Customer acquisition cost (CAC)",
+          "Customer lifetime value (LTV)"
+        ]
+      }
+    ],
+    "required_metrics": [
+      "Total addressable market (TAM)",
+      "Market growth rate",
+      "Number of active users",
+      "Average order value (AOV)",
+      "Order frequency",
+      "Customer acquisition cost (CAC)",
+      "Customer lifetime value (LTV)"
+    ]
+  },
+  "findings": [
+    {
+      "claim": "The India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034.",
+      "evidence": "India has quietly become the most disruptive food delivery market on the planet. Not the largest by GMV that’s China but by innovation velocity, platform intensity, and the sheer density of competition at every level from restaurant aggregation to 10-minute grocery delivery. In 2026, the India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034, the fastest-growing food delivery market in the world, and one that consistently produces innovations that later appear in Western markets years later.",
+      "source_ids": [
+        "S6"
+      ],
+      "confidence": "high",
+      "information_type": "estimate",
+      "scope": "target_geography",
+      "finding_id": "F1",
+      "research_question_id": "q1"
+    },
+    {
+      "claim": "Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026.",
+      "evidence": "Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026.",
+      "source_ids": [
+        "S7"
+      ],
+      "confidence": "high",
+      "information_type": "estimate",
+      "scope": "target_geography",
+      "finding_id": "F2",
+      "research_question_id": "q2"
+    },
+    {
+      "claim": "Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population.",
+      "evidence": "Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population",
+      "source_ids": [
+        "S9"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F3",
+      "research_question_id": "q3"
+    },
+    {
+      "claim": "Key opportunities in the India online food delivery market include cloud kitchens and AI personalization.",
+      "evidence": "Key opportunities include cloud kitchens and AI personalization, with a focus on expanding into Tier II and Tier III cities.",
+      "source_ids": [
+        "S12"
+      ],
+      "confidence": "medium",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F4",
+      "research_question_id": "q4"
+    },
+    {
+      "claim": "Approximately 66 million urban consumers used food delivery platforms in 2024.",
+      "evidence": "Approximately 66 million urban consumers used food delivery platforms in 2024, while the market generated an estimated 2.0 billion delivered meal orders in 2025.",
+      "source_ids": [
+        "S16"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F5",
+      "research_question_id": "q5"
+    },
+    {
+      "claim": "Order frequency, cuisine discovery, convenience and reduced meal preparation time remain the primary commercial demand levers.",
+      "evidence": "Order frequency, cuisine discovery, convenience and reduced meal preparation time remain the primary commercial demand levers.",
+      "source_ids": [
+        "S16"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F6",
+      "research_question_id": "q5"
+    },
+    {
+      "claim": "The industry’s next test is no longer demand generation, but whether that demand can be converted into durable earnings.",
+      "evidence": "That shift matters because the sector sits at the intersection of changing consumer habits and tightening unit economics. Orders have become routine for students, office-goers, families and people living away from home, yet the business behind each order remains expensive to run.",
+      "source_ids": [
+        "S19"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F7",
+      "research_question_id": "q6"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S6",
+      "title": "Food Delivery Companies in India 2026 — Zomato, Swiggy & More",
+      "url": "https://www.foodspark.io/food-delivery-companies-in-india/",
+      "publisher": "foodspark.io",
+      "publication_date": "2026-08-06T06:01:47+00:00",
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S7",
+      "title": "Online Food Delivery - India | Statista Market Forecast",
+      "url": "https://www.statista.com/outlook/emo/online-food-delivery/india/?srsltid=AYCX9vJSAQ9EXVcOWOB8FMrPEi7PNpZYoeChz5-WxAG5zz28kCMdYue_",
+      "publisher": "statista.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S9",
+      "title": "India Food Delivery Market Outlook to 2030",
+      "url": "https://www.nexdigm.com/market-research/report-store/india-food-delivery-market-report/",
+      "publisher": "nexdigm.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S12",
+      "title": "India Online Food Ordering and Delivery Market Report 2025",
+      "url": "https://finance.yahoo.com/news/india-online-food-ordering-delivery-091500760.html",
+      "publisher": "finance.yahoo.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S16",
+      "title": "India Online Food Delivery Market Share, Companies & Trends Report ...",
+      "url": "https://www.kenresearch.com/industry-reports/india-online-food-delivery-market",
+      "publisher": "kenresearch.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S19",
+      "title": "How India's food delivery market is chasing profit after scale",
+      "url": "https://food.economictimes.indiatimes.com/news/b2b-b2c/how-indias-food-delivery-market-is-chasing-profit-after-scale/135598483",
+      "publisher": "food.economictimes.indiatimes.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    }
+  ],
+  "missing_information": []
+}

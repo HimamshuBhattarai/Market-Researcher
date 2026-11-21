@@ -1,0 +1,48 @@
+{
+  "subject": "Analyze the food delivery market in Nepal",
+  "executive_summary": "The Online Food Delivery market in 2024 is USD 71.18 Billion, with the Asia Pacific region dominating with a 34% revenue share in 2025. Yango is directly competing with established platforms Pathao and Foodmandu. The market in Nepal is not well understood, with gaps in knowledge including the current size of the food delivery market, market growth rate, number of active users, customer retention, and key economic factors affecting the market.",
+  "competitors": [
+    {
+      "name": "Yango",
+      "description": "Directly competing with established platforms Pathao and Foodmandu.",
+      "evidence_finding_ids": [
+        "F4"
+      ]
+    }
+  ],
+  "key_observations": [
+    {
+      "text": "Not specific to Nepal: The market size of the Online Food Delivery market in 2024 is USD 71.18 Billion.",
+      "evidence_finding_ids": [
+        "F1"
+      ]
+    },
+    {
+      "text": "Not specific to Nepal: The market in Asia Pacific dominated with a 34% revenue share in 2025.",
+      "evidence_finding_ids": [
+        "F2"
+      ]
+    },
+    {
+      "text": "Not specific to Nepal: A positive impact of delivery logistics on growth of online food businesses was observed.",
+      "evidence_finding_ids": [
+        "F10"
+      ]
+    }
+  ],
+  "source_ids": [
+    "S2",
+    "S5",
+    "S7",
+    "S10"
+  ],
+  "missing_information": [
+    "Total addressable market (TAM)",
+    "Market growth rate",
+    "Number of active users",
+    "Customer retention",
+    "No Nepal-specific evidence found for: What is the current size of the food delivery market in Nepal? (only broader-context data)",
+    "No sourced evidence found for: How is the food delivery market in Nepal growing?",
+    "No Nepal-specific evidence found for: What are the key economic factors affecting the food delivery market in Nepal? (only broader-context data)"
+  ]
+}

@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import Field, model_validator
+from pydantic import Field, field_validator, model_validator
 
 from .base import StrictModel
 
@@ -28,10 +28,17 @@ class ResearchPlan(StrictModel):
     required_metrics: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
-    def unique_question_ids(self):
+    def check_questions(self):
         dupes = _duplicates([q.question_id for q in self.research_questions])
         if dupes:
             raise ValueError(f"Duplicate question_ids: {dupes}")
+        dims = set(self.research_dimensions)
+        for q in self.research_questions:
+            if q.research_dimension not in dims:
+                raise ValueError(
+                    f"{q.question_id} uses dimension '{q.research_dimension}' "
+                    f"which is not in research_dimensions"
+                )
         return self
 
 
@@ -45,25 +52,36 @@ class Source(StrictModel):
     publication_date: str | None = None
     accessed_date: str  # ISO date, set by code
     source_type: str
+    
+Scope = Literal["target_geography", "broader_context"]
 
 
 class ExtractedFinding(StrictModel):
-    """What the LLM fills in. No IDs it could invent, except references
-    to source_ids and a question_id that it was shown."""
+    """What the LLM fills in. Question and finding IDs are attached by code."""
 
-    research_question_id: str
     claim: str
     evidence: str  # short quote or close excerpt from the source
     source_ids: list[str] = Field(min_length=1)
     confidence: Confidence
     information_type: InformationType
+    scope: Scope
+
+    @field_validator("scope", mode="before")
+    @classmethod
+    def normalise_scope(cls, v):
+        if isinstance(v, str):
+            s = v.strip().lower()
+            if s in ("target_geography", "broader_context"):
+                return s
+            if any(w in s for w in ("global", "world", "broader", "other", "region", "general")):
+                return "broader_context"
+            return "target_geography"
+        return v
 
 
 class ResearchFinding(ExtractedFinding):
-    """finding_id is assigned by code after extraction."""
-
     finding_id: str
-
+    research_question_id: str
 
 class ResearcherOutput(StrictModel):
     plan: ResearchPlan
