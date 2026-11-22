@@ -66,12 +66,9 @@ python -m pip install pytest
 | `GROQ_API_KEY` | API key text | none | Primary Groq API key |
 | `groq` | API key text | none | Legacy fallback Groq key name |
 | `GROQ_MODEL` | Groq model name | `openai/gpt-oss-20b` | Groq model used for structured calls |
-| `LLM_JSON_MODE` | `auto`, `on`, `off` | `auto` | Controls JSON response formatting |
 | `TAVILY_API_KEY` | API key text | none | Primary Tavily search key |
 | `SEARCH_API_KEY` | API key text | none | Legacy fallback search key alias |
-| `OLLAMA_MODEL` | Ollama model name | none | Required when `LLM_PROVIDER=ollama` |
-| `OLLAMA_BASE_URL` | URL | `http://localhost:11434/v1` | Local Ollama OpenAI-compatible endpoint |
-| `MARKET_RESEARCH_API_URL` | URL or unset | unset | If set, Streamlit calls this FastAPI URL instead of running the workflow in-process |
+
 
 ## Language-model providers
 
