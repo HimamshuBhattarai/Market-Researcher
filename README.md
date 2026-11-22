@@ -30,11 +30,12 @@ between the roles. A revised draft is not sent back through the critic.
 
 - Python 3.13 or newer
 - uv, or pip as an alternative for local installation
-- A Groq API key and Tavily API key for the default hosted setup
-- Ollama as an optional local language-model provider
+- A Groq API key and Tavily API key for the recommended hosted setup
+- Ollama as an optional local language-model provider instead of Groq
 
-Groq is the default language-model provider. Tavily is the only search
-provider implemented by the current code.
+Groq is the main and default language-model provider. Tavily is the only search
+provider implemented by the current code. Ollama is also supported, so users
+who prefer a local model can change `LLM_PROVIDER=ollama` in `.env`.
 
 ## Setup
 
@@ -74,7 +75,7 @@ python -m pip install pytest
 
 ## Language-model providers
 
-Groq is the default provider. Create a Groq account and set
+Groq is the main and default provider. Create a Groq account and set
 `GROQ_API_KEY`, `GROQ_MODEL` and `TAVILY_API_KEY` in `.env`.
 
 To use Ollama locally, install Ollama and set:
