@@ -1,0 +1,140 @@
+{
+  "plan": {
+    "subject": "Food delivery market",
+    "domain": "Food delivery",
+    "geography": "NEP",
+    "research_dimensions": [
+      "Market size",
+      "Market growth",
+      "Competition",
+      "Business models",
+      "Customers",
+      "Regulation"
+    ],
+    "research_questions": [
+      {
+        "question_id": "q1",
+        "question": "What is the current size of the food delivery market in Nepal?",
+        "research_dimension": "Market size",
+        "relevant_metrics": [
+          "Total addressable market (TAM)"
+        ]
+      },
+      {
+        "question_id": "q2",
+        "question": "What has been the annual growth rate of the food delivery market in Nepal over the past five years?",
+        "research_dimension": "Market growth",
+        "relevant_metrics": [
+          "Market growth rate"
+        ]
+      },
+      {
+        "question_id": "q3",
+        "question": "Which key players dominate the food delivery market in Nepal and what are their market shares?",
+        "research_dimension": "Competition",
+        "relevant_metrics": []
+      },
+      {
+        "question_id": "q4",
+        "question": "What business models are most prevalent among food delivery platforms in Nepal?",
+        "research_dimension": "Business models",
+        "relevant_metrics": [
+          "Commission rate"
+        ]
+      },
+      {
+        "question_id": "q5",
+        "question": "What are the typical customer acquisition costs for food delivery services in Nepal?",
+        "research_dimension": "Customers",
+        "relevant_metrics": [
+          "Customer acquisition cost (CAC)"
+        ]
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the main regulatory challenges faced by food delivery operators in Nepal?",
+        "research_dimension": "Regulation",
+        "relevant_metrics": []
+      }
+    ],
+    "required_metrics": [
+      "Total addressable market (TAM)",
+      "Market growth rate",
+      "Commission rate",
+      "Customer acquisition cost (CAC)"
+    ]
+  },
+  "findings": [
+    {
+      "claim": "Food delivery platforms in Nepal charge a commission of 20% on each order.",
+      "evidence": "Simon Graci: Forget FoodMandu Only Bad expérience with them They have annual fee around 13000-15000rs and they take 20% on each order.",
+      "source_ids": [
+        "S8"
+      ],
+      "confidence": "low",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F1",
+      "research_question_id": "q4"
+    },
+    {
+      "claim": "Obtaining permits to deliver goods was a challenge for food delivery companies during lockdown.",
+      "evidence": "obtaining the permits to deliver the goods. Although the government allowed permits for the vehicles carrying essential goods, the lack of coordination between government and the state representatives caused chaos in the process as well.",
+      "source_ids": [
+        "S13"
+      ],
+      "confidence": "medium",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F2",
+      "research_question_id": "q6"
+    },
+    {
+      "claim": "Implementation and enforcement of food safety regulations remain a challenge in Nepal.",
+      "evidence": "implementation and enforcement remain a challenge, especially in rural areas where access to resources and training is limited.",
+      "source_ids": [
+        "S14"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F3",
+      "research_question_id": "q6"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S8",
+      "title": "Kamal Bhandari on Facebook: \"Especially for Food enthusiasts and Restaurant owners please 👇👇👇👇 Can I get some inputs and ideas as…\"",
+      "url": "https://www.facebook.com/groups/e4nepal/posts/10163936386485430",
+      "publisher": "facebook.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S13",
+      "title": "Challenges faced by food delivery companies amid lockdown - The Himalayan Times - Nepal's No.1 English Daily Newspaper | Nepal News, Latest Politics, Business, World, Sports, Entertainment, Travel, Life Style News",
+      "url": "https://thehimalayantimes.com/opinion/challenges-faced-by-food-delivery-companies-amid-lockdown",
+      "publisher": "thehimalayantimes.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S14",
+      "title": "STRENGTHENING FOOD SAFETY GOVERNANCE IN NEPAL THROUGH COLLABORATIVE CAPACITY DEVELOPMENT AND PRIVATE SECTOR ENGAGEMENT",
+      "url": "https://www.nepjol.info/index.php/AEJ/article/view/58197/43466",
+      "publisher": "nepjol.info",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    }
+  ],
+  "missing_information": [
+    "Research step failed for: What is the current size of the food delivery market in Nepal?",
+    "No sourced evidence found for: What has been the annual growth rate of the food delivery market in Nepal over the past five years?",
+    "No sourced evidence found for: Which key players dominate the food delivery market in Nepal and what are their market shares?",
+    "No sourced evidence found for: What are the typical customer acquisition costs for food delivery services in Nepal?"
+  ]
+}

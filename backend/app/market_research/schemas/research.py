@@ -78,6 +78,25 @@ class ExtractedFinding(StrictModel):
             return "target_geography"
         return v
 
+    @field_validator("confidence", mode="before")
+    @classmethod
+    def normalise_confidence(cls, v):
+        if isinstance(v, str):
+            s = v.strip().lower()
+            if s in ("high", "medium", "low"):
+                return s
+            return "low"
+        return "low"
+
+    @field_validator("information_type", mode="before")
+    @classmethod
+    def normalise_information_type(cls, v):
+        if isinstance(v, str):
+            s = v.strip().lower()
+            if s in ("fact", "estimate", "interpretation"):
+                return s
+        return "interpretation"
+
 
 class ResearchFinding(ExtractedFinding):
     finding_id: str

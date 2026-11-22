@@ -1,0 +1,179 @@
+{
+  "query": "Analyze the food delivery market in India.",
+  "research_mode": "resumed",
+  "status": "completed",
+  "revision_count": 1,
+  "critic_feedback": {
+    "approved": false,
+    "overall_assessment": "2 issue(s) found; see issues and revision instructions.",
+    "issues": [
+      "Summary sentence combines figures from multiple publishers (foodspark.io, statista.com).",
+      "Summary sentence combines figures from multiple publishers (foodspark.io, statista.com)."
+    ],
+    "revision_instructions": [
+      "Fix: Summary sentence combines figures from multiple publishers (foodspark.io, statista.com).",
+      "Fix: Summary sentence combines figures from multiple publishers (foodspark.io, statista.com)."
+    ]
+  },
+  "final_brief": {
+    "subject": "Food delivery market in India",
+    "executive_summary": "The India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034. Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026. Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population. Key opportunities in the India online food delivery market include cloud kitchens and AI personalization, with a focus on expanding into Tier II and Tier III cities. Several expected metrics could not be found; see the missing information section. Market-size figures come from several sources (foodspark.io, kenresearch.com, statista.com) that may use different definitions and are not directly comparable.",
+    "competitors": [],
+    "key_observations": [
+      {
+        "text": "The India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034.",
+        "evidence_finding_ids": [
+          "F1"
+        ]
+      },
+      {
+        "text": "Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026.",
+        "evidence_finding_ids": [
+          "F2"
+        ]
+      },
+      {
+        "text": "Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population.",
+        "evidence_finding_ids": [
+          "F3"
+        ]
+      },
+      {
+        "text": "Key opportunities in the India online food delivery market include cloud kitchens and AI personalization, with a focus on expanding into Tier II and Tier III cities.",
+        "evidence_finding_ids": [
+          "F4"
+        ]
+      },
+      {
+        "text": "Approximately 66 million urban consumers used food delivery platforms in 2024, while the market generated an estimated 2.0 billion delivered meal orders in 2025.",
+        "evidence_finding_ids": [
+          "F5"
+        ]
+      },
+      {
+        "text": "Order frequency, cuisine discovery, convenience and reduced meal preparation time remain the primary commercial demand levers.",
+        "evidence_finding_ids": [
+          "F6"
+        ]
+      }
+    ],
+    "source_ids": [
+      "S6",
+      "S7",
+      "S9",
+      "S12",
+      "S16"
+    ],
+    "missing_information": [
+      "This brief was produced from a saved research dataset, not from a new live search.",
+      "Average order value (AOV)",
+      "Order frequency",
+      "Customer acquisition cost (CAC)",
+      "Customer lifetime value (LTV)",
+      "Market-size figures come from several sources (foodspark.io, kenresearch.com, statista.com) that may use different definitions and are not directly comparable."
+    ]
+  },
+  "findings": [
+    {
+      "claim": "The India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034.",
+      "evidence": "India has quietly become the most disruptive food delivery market on the planet. Not the largest by GMV that’s China but by innovation velocity, platform intensity, and the sheer density of competition at every level from restaurant aggregation to 10-minute grocery delivery. In 2026, the India online food delivery market stands at USD 55.58 billion, growing at a 22.18% compound annual growth rate through 2034, the fastest-growing food delivery market in the world, and one that consistently produces innovations that later appear in Western markets years later.",
+      "scope": "target_geography",
+      "confidence": "high",
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "claim": "Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026.",
+      "evidence": "Revenue in the Online Food Delivery market is projected to reach US$61.76bn in 2026.",
+      "scope": "target_geography",
+      "confidence": "high",
+      "source_ids": [
+        "S7"
+      ]
+    },
+    {
+      "claim": "Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population.",
+      "evidence": "Major metros including Delhi, Mumbai, Bangalore, Hyderabad, and Chennai dominate due to dense population",
+      "scope": "target_geography",
+      "confidence": "high",
+      "source_ids": [
+        "S9"
+      ]
+    },
+    {
+      "claim": "Key opportunities in the India online food delivery market include cloud kitchens and AI personalization.",
+      "evidence": "Key opportunities include cloud kitchens and AI personalization, with a focus on expanding into Tier II and Tier III cities.",
+      "scope": "target_geography",
+      "confidence": "medium",
+      "source_ids": [
+        "S12"
+      ]
+    },
+    {
+      "claim": "Approximately 66 million urban consumers used food delivery platforms in 2024.",
+      "evidence": "Approximately 66 million urban consumers used food delivery platforms in 2024, while the market generated an estimated 2.0 billion delivered meal orders in 2025.",
+      "scope": "target_geography",
+      "confidence": "high",
+      "source_ids": [
+        "S16"
+      ]
+    },
+    {
+      "claim": "Order frequency, cuisine discovery, convenience and reduced meal preparation time remain the primary commercial demand levers.",
+      "evidence": "Order frequency, cuisine discovery, convenience and reduced meal preparation time remain the primary commercial demand levers.",
+      "scope": "target_geography",
+      "confidence": "high",
+      "source_ids": [
+        "S16"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S6",
+      "title": "Food Delivery Companies in India 2026 — Zomato, Swiggy & More",
+      "url": "https://www.foodspark.io/food-delivery-companies-in-india/",
+      "publisher": "foodspark.io",
+      "publication_date": "2026-08-06T06:01:47+00:00",
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S7",
+      "title": "Online Food Delivery - India | Statista Market Forecast",
+      "url": "https://www.statista.com/outlook/emo/online-food-delivery/india/?srsltid=AYCX9vJSAQ9EXVcOWOB8FMrPEi7PNpZYoeChz5-WxAG5zz28kCMdYue_",
+      "publisher": "statista.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S9",
+      "title": "India Food Delivery Market Outlook to 2030",
+      "url": "https://www.nexdigm.com/market-research/report-store/india-food-delivery-market-report/",
+      "publisher": "nexdigm.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S12",
+      "title": "India Online Food Ordering and Delivery Market Report 2025",
+      "url": "https://finance.yahoo.com/news/india-online-food-ordering-delivery-091500760.html",
+      "publisher": "finance.yahoo.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S16",
+      "title": "India Online Food Delivery Market Share, Companies & Trends Report ...",
+      "url": "https://www.kenresearch.com/industry-reports/india-online-food-delivery-market",
+      "publisher": "kenresearch.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-21",
+      "source_type": "web page"
+    }
+  ]
+}

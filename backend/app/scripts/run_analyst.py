@@ -8,7 +8,7 @@ if str(APP_DIR) not in sys.path:
 from market_research.agents.analyst import run_analyst
 from market_research.schemas import ResearcherOutput
 
-path = Path(sys.argv[1] if len(sys.argv) > 1 else "outputs/researcher_output.json")
+path = Path(sys.argv[1] if len(sys.argv) > 1 else "outputs/fixture_nepal.json.json")
 research = ResearcherOutput.model_validate_json(path.read_text(encoding="utf-8"))
 
 brief = run_analyst("Analyze the food delivery market in Nepal.", research)

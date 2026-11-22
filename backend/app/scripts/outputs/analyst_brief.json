@@ -1,48 +1,44 @@
 {
-  "subject": "Analyze the food delivery market in Nepal",
-  "executive_summary": "The Online Food Delivery market in 2024 is USD 71.18 Billion, with the Asia Pacific region dominating with a 34% revenue share in 2025. Yango is directly competing with established platforms Pathao and Foodmandu. The market in Nepal is not well understood, with gaps in knowledge including the current size of the food delivery market, market growth rate, number of active users, customer retention, and key economic factors affecting the market.",
+  "subject": "Food delivery market in Nepal",
+  "executive_summary": "The Online Food Delivery market in Nepal contains two different delivery service solutions: Meal Delivery and Grocery Delivery. Foodmandu is Nepal's first online food delivery service, founded in 2010. The total addressable market (TAM) and market growth rate are unknown, as well as the characteristics of customers using food delivery services in Nepal and the key economic factors influencing the food delivery market in Nepal.",
   "competitors": [
     {
-      "name": "Yango",
-      "description": "Directly competing with established platforms Pathao and Foodmandu.",
+      "name": "Foodmandu",
+      "description": "Nepal's first online food delivery service, founded in 2010.",
       "evidence_finding_ids": [
-        "F4"
+        "F3"
       ]
     }
   ],
   "key_observations": [
     {
-      "text": "Not specific to Nepal: The market size of the Online Food Delivery market in 2024 is USD 71.18 Billion.",
+      "text": "The Online Food Delivery market contains the buyer and revenue development of two different delivery service solutions: (1) Meal Delivery and (2) Grocery Delivery.",
       "evidence_finding_ids": [
         "F1"
       ]
     },
     {
-      "text": "Not specific to Nepal: The market in Asia Pacific dominated with a 34% revenue share in 2025.",
+      "text": "Another model of online food business is known as cloud kitchen where a company owns the food and delivery part of the business.",
       "evidence_finding_ids": [
         "F2"
-      ]
-    },
-    {
-      "text": "Not specific to Nepal: A positive impact of delivery logistics on growth of online food businesses was observed.",
-      "evidence_finding_ids": [
-        "F10"
       ]
     }
   ],
   "source_ids": [
-    "S2",
-    "S5",
-    "S7",
-    "S10"
+    "S1",
+    "S10",
+    "S12"
   ],
   "missing_information": [
     "Total addressable market (TAM)",
     "Market growth rate",
     "Number of active users",
-    "Customer retention",
-    "No Nepal-specific evidence found for: What is the current size of the food delivery market in Nepal? (only broader-context data)",
-    "No sourced evidence found for: How is the food delivery market in Nepal growing?",
-    "No Nepal-specific evidence found for: What are the key economic factors affecting the food delivery market in Nepal? (only broader-context data)"
+    "Average order value (AOV)",
+    "Order frequency",
+    "Customer acquisition cost (CAC)",
+    "Customer lifetime value (LTV)",
+    "No sourced evidence found for: What is the growth rate of the food delivery market in Nepal?",
+    "No Nepal-specific evidence found for: What are the characteristics of customers using food delivery services in Nepal? (only broader-context data)",
+    "No Nepal-specific evidence found for: What are the key economic factors influencing the food delivery market in Nepal? (only broader-context data)"
   ]
 }

@@ -8,11 +8,11 @@ load_dotenv()
 
 # Research budget knobs
 MAX_QUESTIONS = 6
-RESULTS_PER_QUERY = 3
+RESULTS_PER_QUERY = 2
 MAX_FINDINGS_PER_QUESTION = 3
 
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 DEFAULT_OLLAMA_URL = "http://localhost:11434/v1"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 
 
 class ConfigError(RuntimeError):
@@ -25,6 +25,7 @@ class Settings:
     llm_api_key: str
     llm_model: str
     llm_base_url: str
+    llm_json_mode: str
     search_api_key: str
     max_chars_per_source: int
 
@@ -41,13 +42,18 @@ def _require(name: str) -> str:
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
-    provider = os.getenv("LLM_PROVIDER", "openrouter").strip().lower()
+    provider = os.getenv("LLM_PROVIDER", "groq").strip().lower()
+    json_mode = os.getenv("LLM_JSON_MODE", "auto").strip().lower()
+    if json_mode not in {"auto", "on", "off"}:
+        json_mode = "auto"
+    tavily_key = os.getenv("TAVILY_API_KEY", "").strip()
+    search_key = tavily_key or _require("SEARCH_API_KEY")
 
-    if provider == "openrouter":
-        key = _require("OPENROUTER_API_KEY")
-        model = _require("OPENROUTER_MODEL")
-        base_url = OPENROUTER_BASE_URL
-        max_chars = 12000
+    if provider == "groq":
+        key = _require("groq")
+        model = os.getenv("GROQ_MODEL", "").strip() or "openai/gpt-oss-20b"
+        base_url = GROQ_BASE_URL
+        max_chars = 2000
     elif provider == "ollama":
         key = "ollama"  # the client requires a non-empty key; Ollama ignores it
         model = _require("OLLAMA_MODEL")
@@ -55,7 +61,7 @@ def get_settings() -> Settings:
         max_chars = 2500  # local models often run with small context windows
     else:
         raise ConfigError(
-            f"LLM_PROVIDER must be 'openrouter' or 'ollama', got '{provider}'."
+            f"LLM_PROVIDER must be 'groq' or 'ollama', got '{provider}'."
         )
 
     return Settings(
@@ -63,6 +69,7 @@ def get_settings() -> Settings:
         llm_api_key=key,
         llm_model=model,
         llm_base_url=base_url,
-        search_api_key=_require("SEARCH_API_KEY"),
+        llm_json_mode=json_mode,
+        search_api_key=search_key,
         max_chars_per_source=max_chars,
     )

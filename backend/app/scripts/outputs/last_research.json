@@ -1,0 +1,229 @@
+{
+  "plan": {
+    "subject": "Food delivery market",
+    "domain": "Food delivery",
+    "geography": "India",
+    "research_dimensions": [
+      "Market size",
+      "Market growth",
+      "Customers",
+      "Economics",
+      "Business models",
+      "Regulation"
+    ],
+    "research_questions": [
+      {
+        "question_id": "q1",
+        "question": "What is the current size of the food delivery market in India?",
+        "research_dimension": "Market size",
+        "relevant_metrics": [
+          "Total addressable market (TAM)"
+        ]
+      },
+      {
+        "question_id": "q2",
+        "question": "What has been the annual growth rate of the food delivery market in India over the past five years?",
+        "research_dimension": "Market growth",
+        "relevant_metrics": [
+          "Market growth rate"
+        ]
+      },
+      {
+        "question_id": "q3",
+        "question": "How many active users are there in the Indian food delivery market?",
+        "research_dimension": "Customers",
+        "relevant_metrics": [
+          "Number of active users"
+        ]
+      },
+      {
+        "question_id": "q4",
+        "question": "What is the average order value for food delivery services in India?",
+        "research_dimension": "Economics",
+        "relevant_metrics": [
+          "Average order value (AOV)"
+        ]
+      },
+      {
+        "question_id": "q5",
+        "question": "What commission rates do major food delivery platforms charge restaurants in India?",
+        "research_dimension": "Business models",
+        "relevant_metrics": [
+          "Commission rate"
+        ]
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the key regulatory challenges facing food delivery operators in India?",
+        "research_dimension": "Regulation",
+        "relevant_metrics": []
+      }
+    ],
+    "required_metrics": [
+      "Total addressable market (TAM)",
+      "Market growth rate",
+      "Number of active users",
+      "Average order value (AOV)",
+      "Commission rate"
+    ]
+  },
+  "findings": [
+    {
+      "claim": "The India online food delivery market grew from USD 55.58 Billion in 2025 to USD 67.90 Billion in 2026.",
+      "evidence": "The India online food delivery market grew from USD 55.58 Billion in 2025 to USD 67.90Billion in 2026",
+      "source_ids": [
+        "S1"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F1",
+      "research_question_id": "q1"
+    },
+    {
+      "claim": "The India online food delivery market is expected to reach USD 337.15 Billion by 2034.",
+      "evidence": "The India online food delivery market is expected to grow at a compound annual growth rate of 22.18% from 2026-2034 to reach USD 337.15 Billion by 2034",
+      "source_ids": [
+        "S1"
+      ],
+      "confidence": "high",
+      "information_type": "estimate",
+      "scope": "target_geography",
+      "finding_id": "F2",
+      "research_question_id": "q1"
+    },
+    {
+      "claim": "The India online food delivery market attained a value of nearly US$ 5.30 Billion in 2022.",
+      "evidence": "As a result, the Indian online food delivery market attained a value of nearly US$ 5.30 Billion in 2022",
+      "source_ids": [
+        "S2"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F3",
+      "research_question_id": "q1"
+    },
+    {
+      "claim": "Ownly is a zero-commission platform for restaurants in India.",
+      "evidence": "The Ownly app is designed as a zero-commission platform, offering customers meals at prices comparable to those in physical restaurants, while also reducing costs for restaurant partners by eliminating hidden fees, Moneycontrol has reported.",
+      "source_ids": [
+        "S11"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F4",
+      "research_question_id": "q5"
+    },
+    {
+      "claim": "Food delivery apps generally charge restaurants a commission ranging between 15% and 30% of gross order value.",
+      "evidence": "Commission structures vary significantly by platform, market, service tier, and restaurant size, but the general range sits between 15% and 30% of gross order value for full-service marketplace arrangements.",
+      "source_ids": [
+        "S12"
+      ],
+      "confidence": "medium",
+      "information_type": "estimate",
+      "scope": "broader_context",
+      "finding_id": "F5",
+      "research_question_id": "q5"
+    },
+    {
+      "claim": "Restaurants/cafes listed with major food delivery apps lack registration with the FSSAI, and hence safety standards are not maintained as per the FSS regulatory framework;",
+      "evidence": "Restaurants/ cafes, listed with major food delivery apps, lack registration with the FSSAI, and hence, safety standards are not maintained as per the FSS regulatory framework;",
+      "source_ids": [
+        "S13"
+      ],
+      "confidence": "medium",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F6",
+      "research_question_id": "q6"
+    },
+    {
+      "claim": "The Advisory places significant responsibility on e-commerce platforms to uphold food safety standards.",
+      "evidence": "The Advisory places significant responsibility on e-commerce platforms to uphold food safety standards.",
+      "source_ids": [
+        "S14"
+      ],
+      "confidence": "medium",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F7",
+      "research_question_id": "q6"
+    },
+    {
+      "claim": "Issues such as how delivery personnel training should be documented, how liability is shared between marketplaces, sellers, and delivery partners, and how new shelf-life rules work with existing regulations remain unaddressed by the Advisory.",
+      "evidence": "issues are yet to be addressed by the Advisory such as how should delivery personnel training be documented, how is liability shared between marketplaces, sellers, and delivery partners, and how do new shelf-life rules work with existing regulations.",
+      "source_ids": [
+        "S14"
+      ],
+      "confidence": "medium",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F8",
+      "research_question_id": "q6"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "India Online Food Delivery Market Size & Share Report 2034",
+      "url": "https://www.imarcgroup.com/india-online-food-delivery-market",
+      "publisher": "imarcgroup.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S2",
+      "title": "India Online Food Delivery Market Report 2023: Demand for Quick Access to Affordable Food Sparks Growth",
+      "url": "https://finance.yahoo.com/news/india-online-food-delivery-market-094800365.html",
+      "publisher": "finance.yahoo.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S11",
+      "title": "Rapido enters food delivery service in India with Ownly app",
+      "url": "https://finance.yahoo.com/news/rapido-enters-food-delivery-india-114656085.html",
+      "publisher": "finance.yahoo.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S12",
+      "title": "Food Delivery Platform Fees: How Delivery Apps Actually Make Money – Inkwood Research blog",
+      "url": "https://inkwoodresearchblog.wordpress.com/2026/03/21/food-delivery-platform-fees-how-delivery-apps-actually-make-money",
+      "publisher": "inkwoodresearchblog.wordpress.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S13",
+      "title": "Beyond the Basket: Analysing Underlying Challenges for India’s E-FBOs – Part 1 | India Corporate Law",
+      "url": "https://corporate.cyrilamarchandblogs.com/2024/07/beyond-the-basket-analysing-underlying-challenges-for-indias-e-fbos-part-1",
+      "publisher": "corporate.cyrilamarchandblogs.com",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    },
+    {
+      "source_id": "S14",
+      "title": "Quick Commerce, Slow Compliance? Decoding Food Safety Regulations for EFBOs in India  - Acuity Law",
+      "url": "https://acuitylaw.co.in/quick-commerce-slow-compliance-decoding-food-safety-regulations-for-efbos-in-india",
+      "publisher": "acuitylaw.co.in",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "web page"
+    }
+  ],
+  "missing_information": [
+    "Research step failed for: What has been the annual growth rate of the food delivery market in India over the past five years?",
+    "No sourced evidence found for: How many active users are there in the Indian food delivery market?",
+    "No sourced evidence found for: What is the average order value for food delivery services in India?"
+  ]
+}

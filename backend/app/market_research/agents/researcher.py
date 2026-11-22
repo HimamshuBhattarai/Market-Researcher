@@ -118,10 +118,48 @@ def _geo_specific(
 
 def _low_trust(cited: list[str], registry: _SourceRegistry) -> bool:
     for sid in cited:
-        host = (registry.sources[sid].publisher or "").lower()
+        source = registry.sources[sid]
+        host = (source.publisher or urlparse(source.url).netloc).lower()
+        path = urlparse(source.url).path.lower()
         if any(host == d or host.endswith("." + d) for d in LOW_TRUST_DOMAINS):
             return True
+        if "blog" in host or "/blog" in path:
+            return True
     return False
+
+
+def apply_loaded_research_rules(
+    research: ResearcherOutput,
+) -> ResearcherOutput:
+    """Reapply deterministic source and scope rules to saved research."""
+    registry = _SourceRegistry()
+    registry.sources = {source.source_id: source for source in research.sources}
+    registry.texts = {
+        source.source_id: ""
+        for source in research.sources
+    }
+
+    findings = []
+    geography = research.plan.geography
+    for finding in research.findings:
+        updates = {}
+        if _low_trust(finding.source_ids, registry):
+            updates["confidence"] = "low"
+        if (
+            geography
+            and finding.scope == "target_geography"
+            and not _geo_specific(
+                geography,
+                finding.evidence,
+                finding.source_ids,
+                registry,
+            )
+        ):
+            updates["scope"] = "broader_context"
+        findings.append(
+            finding.model_copy(update=updates) if updates else finding
+        )
+    return research.model_copy(update={"findings": findings})
 
 
 # ---------- LLM steps ----------
@@ -175,6 +213,10 @@ Judge each finding below. For each index give one verdict:
   year-over-year change. When unsure, choose off_topic. This also includes
   descriptions of a study's method or variables, a company's own marketing, generic
   definitions, and figures for another region that are not useful context.
+- A figure from an article about a different business (for example quick commerce,
+  grocery delivery, ride-hailing or e-commerce) is "off_topic" unless the evidence
+  passage itself says it applies to the subject of the research (for example food
+  delivery).
 
 Return exactly: {{"verdicts": [{{"index": 0, "verdict": "supported"}}, ...]}}
 Include every index.
