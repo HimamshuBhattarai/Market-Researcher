@@ -1,140 +1,190 @@
 {
-  "plan": {
-    "subject": "Food delivery market",
-    "domain": "Food delivery",
-    "geography": "NEP",
-    "research_dimensions": [
-      "Market size",
-      "Market growth",
-      "Competition",
-      "Business models",
-      "Customers",
-      "Regulation"
-    ],
-    "research_questions": [
+  "research_mode": "live",
+  "research_output": {
+    "plan": {
+      "subject": "Food delivery market in Nepal",
+      "domain": "Food delivery",
+      "geography": "Nepal",
+      "research_dimensions": [
+        "Market size",
+        "Market growth",
+        "Competition",
+        "Business models",
+        "Customers",
+        "Economics"
+      ],
+      "research_questions": [
+        {
+          "question_id": "q1",
+          "question": "What is the current size of the food delivery market in Nepal?",
+          "research_dimension": "Market size",
+          "relevant_metrics": [
+            "Total addressable market (TAM)"
+          ]
+        },
+        {
+          "question_id": "q2",
+          "question": "What is the growth rate of the food delivery market in Nepal?",
+          "research_dimension": "Market growth",
+          "relevant_metrics": [
+            "Market growth rate"
+          ]
+        },
+        {
+          "question_id": "q3",
+          "question": "Who are the major players in the food delivery market in Nepal?",
+          "research_dimension": "Competition",
+          "relevant_metrics": [
+            "Number of active users"
+          ]
+        },
+        {
+          "question_id": "q4",
+          "question": "What are the common business models used by food delivery companies in Nepal?",
+          "research_dimension": "Business models",
+          "relevant_metrics": []
+        },
+        {
+          "question_id": "q5",
+          "question": "What are the characteristics of customers using food delivery services in Nepal?",
+          "research_dimension": "Customers",
+          "relevant_metrics": [
+            "Customer retention"
+          ]
+        },
+        {
+          "question_id": "q6",
+          "question": "What are the key economic factors influencing the food delivery market in Nepal?",
+          "research_dimension": "Economics",
+          "relevant_metrics": [
+            "Delivery cost per order",
+            "Commission rate"
+          ]
+        }
+      ],
+      "required_metrics": [
+        "Total addressable market (TAM)",
+        "Market growth rate",
+        "Number of active users",
+        "Customer retention"
+      ]
+    },
+    "findings": [
       {
-        "question_id": "q1",
-        "question": "What is the current size of the food delivery market in Nepal?",
-        "research_dimension": "Market size",
-        "relevant_metrics": [
-          "Total addressable market (TAM)"
-        ]
+        "claim": "The Online Food Delivery market in Nepal is witnessing remarkable growth.",
+        "evidence": "The Online Food Delivery market in Nepal is witnessing remarkable growth, fueled by the rising demand for convenience, increased smartphone penetration, and a shift towards digital solutions in food procurement, enhancing consumer access to diverse meal options.",
+        "source_ids": [
+          "S1"
+        ],
+        "confidence": "high",
+        "information_type": "interpretation",
+        "scope": "target_geography",
+        "finding_id": "F1",
+        "research_question_id": "q1"
       },
       {
-        "question_id": "q2",
-        "question": "What has been the annual growth rate of the food delivery market in Nepal over the past five years?",
-        "research_dimension": "Market growth",
-        "relevant_metrics": [
-          "Market growth rate"
-        ]
+        "claim": "Bhojdeals is noted as the main competitor to Foodmandu in the Nepalese food delivery market.",
+        "evidence": "Bhojdeals is noted as the main competitor, having also achieved significant app downloads and offering a wide range of food options from numerous establishments.",
+        "source_ids": [
+          "S4"
+        ],
+        "confidence": "low",
+        "information_type": "fact",
+        "scope": "target_geography",
+        "finding_id": "F2",
+        "research_question_id": "q3"
       },
       {
-        "question_id": "q3",
-        "question": "Which key players dominate the food delivery market in Nepal and what are their market shares?",
-        "research_dimension": "Competition",
-        "relevant_metrics": []
+        "claim": "Foodmandu is the first food delivery service in Nepal.",
+        "evidence": "Foodmandu was the first food delivery service in Nepal, but now faces competition from several similar companies like Bhojdeals (BHOJ), Food Dole, and others.",
+        "source_ids": [
+          "S4"
+        ],
+        "confidence": "low",
+        "information_type": "fact",
+        "scope": "target_geography",
+        "finding_id": "F3",
+        "research_question_id": "q3"
       },
       {
-        "question_id": "q4",
-        "question": "What business models are most prevalent among food delivery platforms in Nepal?",
-        "research_dimension": "Business models",
-        "relevant_metrics": [
-          "Commission rate"
-        ]
+        "claim": "Nepal's food delivery services mainly operate on commission-based or subscription models.",
+        "evidence": "Nepal's food delivery services mainly operate on commission-based or subscription models. Restaurants pay a fee for listings or delivery services, while users benefit from convenient access to diverse culinary offerings at competitive prices.",
+        "source_ids": [
+          "S6"
+        ],
+        "confidence": "high",
+        "information_type": "fact",
+        "scope": "target_geography",
+        "finding_id": "F4",
+        "research_question_id": "q4"
       },
       {
-        "question_id": "q5",
-        "question": "What are the typical customer acquisition costs for food delivery services in Nepal?",
-        "research_dimension": "Customers",
-        "relevant_metrics": [
-          "Customer acquisition cost (CAC)"
-        ]
+        "claim": "Respondents were most attracted by sales promotional activity involving 'special price' (with a mean score of 4.45).",
+        "evidence": "Respondents were most attracted by sales promotional activity involving “special price” (with a mean score of 4.45), whereas “point exchange” were the least attractive (3.84).",
+        "source_ids": [
+          "S10"
+        ],
+        "confidence": "medium",
+        "information_type": "fact",
+        "scope": "broader_context",
+        "finding_id": "F5",
+        "research_question_id": "q5"
       },
       {
-        "question_id": "q6",
-        "question": "What are the main regulatory challenges faced by food delivery operators in Nepal?",
-        "research_dimension": "Regulation",
-        "relevant_metrics": []
+        "claim": "Consumers were more satisfied with online food delivery service 'availability' (4.81) than with the 'delivery time' (3.77).",
+        "evidence": "Consumers were more satisfied with online food delivery service “availability” (4.81) than with the “delivery time” (3.77).",
+        "source_ids": [
+          "S10"
+        ],
+        "confidence": "medium",
+        "information_type": "fact",
+        "scope": "broader_context",
+        "finding_id": "F6",
+        "research_question_id": "q5"
       }
     ],
-    "required_metrics": [
-      "Total addressable market (TAM)",
-      "Market growth rate",
-      "Commission rate",
-      "Customer acquisition cost (CAC)"
+    "sources": [
+      {
+        "source_id": "S1",
+        "title": "Online Food Delivery - Nepal | Statista Market Forecast",
+        "url": "https://www.statista.com/outlook/emo/online-food-delivery/nepal",
+        "publisher": "statista.com",
+        "publication_date": null,
+        "accessed_date": "2026-11-22",
+        "source_type": "web page"
+      },
+      {
+        "source_id": "S4",
+        "title": "Nepal Food Delivery Market Competition | PDF",
+        "url": "https://es.scribd.com/document/576336752/online-food-delevery-in-ktm",
+        "publisher": "es.scribd.com",
+        "publication_date": null,
+        "accessed_date": "2026-11-22",
+        "source_type": "web page"
+      },
+      {
+        "source_id": "S6",
+        "title": "https://prezi.com/p/rik-tlbmdfsg/restaurant-and-online-food-delivery-services-in-nepal/",
+        "url": "https://prezi.com/p/rik-tlbmdfsg/restaurant-and-online-food-delivery-services-in-nepal",
+        "publisher": "prezi.com",
+        "publication_date": null,
+        "accessed_date": "2026-11-22",
+        "source_type": "web page"
+      },
+      {
+        "source_id": "S10",
+        "title": "Customer Loyalty Analysis on Online Food Delivery Services",
+        "url": "https://pdfs.semanticscholar.org/937d/b32eb69cef651d54c0a632c6d34c87bda3cd.pdf",
+        "publisher": "pdfs.semanticscholar.org",
+        "publication_date": null,
+        "accessed_date": "2026-11-22",
+        "source_type": "web page"
+      }
+    ],
+    "missing_information": [
+      "No sourced evidence found for: What is the growth rate of the food delivery market in Nepal?",
+      "No Nepal-specific evidence found for: What are the characteristics of customers using food delivery services in Nepal? (only broader-context data)",
+      "No sourced evidence found for: What are the key economic factors influencing the food delivery market in Nepal?"
     ]
-  },
-  "findings": [
-    {
-      "claim": "Food delivery platforms in Nepal charge a commission of 20% on each order.",
-      "evidence": "Simon Graci: Forget FoodMandu Only Bad expérience with them They have annual fee around 13000-15000rs and they take 20% on each order.",
-      "source_ids": [
-        "S8"
-      ],
-      "confidence": "low",
-      "information_type": "fact",
-      "scope": "target_geography",
-      "finding_id": "F1",
-      "research_question_id": "q4"
-    },
-    {
-      "claim": "Obtaining permits to deliver goods was a challenge for food delivery companies during lockdown.",
-      "evidence": "obtaining the permits to deliver the goods. Although the government allowed permits for the vehicles carrying essential goods, the lack of coordination between government and the state representatives caused chaos in the process as well.",
-      "source_ids": [
-        "S13"
-      ],
-      "confidence": "medium",
-      "information_type": "fact",
-      "scope": "target_geography",
-      "finding_id": "F2",
-      "research_question_id": "q6"
-    },
-    {
-      "claim": "Implementation and enforcement of food safety regulations remain a challenge in Nepal.",
-      "evidence": "implementation and enforcement remain a challenge, especially in rural areas where access to resources and training is limited.",
-      "source_ids": [
-        "S14"
-      ],
-      "confidence": "high",
-      "information_type": "fact",
-      "scope": "target_geography",
-      "finding_id": "F3",
-      "research_question_id": "q6"
-    }
-  ],
-  "sources": [
-    {
-      "source_id": "S8",
-      "title": "Kamal Bhandari on Facebook: \"Especially for Food enthusiasts and Restaurant owners please 👇👇👇👇 Can I get some inputs and ideas as…\"",
-      "url": "https://www.facebook.com/groups/e4nepal/posts/10163936386485430",
-      "publisher": "facebook.com",
-      "publication_date": null,
-      "accessed_date": "2026-11-22",
-      "source_type": "web page"
-    },
-    {
-      "source_id": "S13",
-      "title": "Challenges faced by food delivery companies amid lockdown - The Himalayan Times - Nepal's No.1 English Daily Newspaper | Nepal News, Latest Politics, Business, World, Sports, Entertainment, Travel, Life Style News",
-      "url": "https://thehimalayantimes.com/opinion/challenges-faced-by-food-delivery-companies-amid-lockdown",
-      "publisher": "thehimalayantimes.com",
-      "publication_date": null,
-      "accessed_date": "2026-11-22",
-      "source_type": "web page"
-    },
-    {
-      "source_id": "S14",
-      "title": "STRENGTHENING FOOD SAFETY GOVERNANCE IN NEPAL THROUGH COLLABORATIVE CAPACITY DEVELOPMENT AND PRIVATE SECTOR ENGAGEMENT",
-      "url": "https://www.nepjol.info/index.php/AEJ/article/view/58197/43466",
-      "publisher": "nepjol.info",
-      "publication_date": null,
-      "accessed_date": "2026-11-22",
-      "source_type": "web page"
-    }
-  ],
-  "missing_information": [
-    "Research step failed for: What is the current size of the food delivery market in Nepal?",
-    "No sourced evidence found for: What has been the annual growth rate of the food delivery market in Nepal over the past five years?",
-    "No sourced evidence found for: Which key players dominate the food delivery market in Nepal and what are their market shares?",
-    "No sourced evidence found for: What are the typical customer acquisition costs for food delivery services in Nepal?"
-  ]
+  }
 }

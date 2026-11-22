@@ -11,6 +11,10 @@ class SearchError(RuntimeError):
     pass
 
 
+class SearchQuotaError(SearchError):
+    pass
+
+
 @dataclass
 class SearchResult:
     url: str
@@ -38,7 +42,14 @@ def search_web(query: str, limit: int = 3) -> list[SearchResult]:
         raise SearchError(f"Search request failed: {e}") from e
 
     if r.status_code != 200:
-        raise SearchError(f"Tavily returned {r.status_code}: {r.text[:200]}")
+        detail = r.text.lower()
+        if r.status_code in {402, 429} or any(
+            term in detail for term in ("credit", "quota", "plan limit")
+        ):
+            raise SearchQuotaError(
+                "The search provider's credits or quota are used up."
+            )
+        raise SearchError(f"Tavily returned {r.status_code}")
 
     results: list[SearchResult] = []
     for item in r.json().get("results", []):

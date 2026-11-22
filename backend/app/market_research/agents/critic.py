@@ -1,10 +1,13 @@
 import re
+import logging
 
 from pydantic import Field
 
 from market_research.schemas import CriticFeedback, ResearchBrief, ResearcherOutput
 from market_research.schemas.base import StrictModel
 from market_research.services.llm import generate_structured
+
+logger = logging.getLogger(__name__)
 
 SYSTEM = (
     "You are a strict but fair research reviewer. You check a brief against the "
@@ -95,6 +98,8 @@ def _publisher_findings(research: ResearcherOutput) -> dict[str, list]:
     for finding in research.findings:
         for source_id in finding.source_ids:
             source = sources.get(source_id)
+            if source is None:
+                continue
             publisher = (source.publisher or source.title).strip().lower()
             if publisher:
                 by_publisher.setdefault(publisher, []).append(finding)
@@ -360,11 +365,11 @@ Return JSON: {{"issues": [{{"quote": "...", "unsupported_phrase": "..."}}]}}"""
             None,
         )
         if len(phrase) < 4 or phrase not in quote or not match:
-            print(f"[debug] discarded critic issue (quote not found): {i.quote[:70]}")
+            logger.debug("Discarded critic issue because the quoted text was not found.")
             continue
         label, ids = match
         if _phrase_supported(phrase, _norm(_cited_text(ids, by_id))):
-            print(f"[debug] discarded critic issue (phrase is in the evidence): {phrase[:70]}")
+            logger.debug("Discarded critic issue because the phrase is supported by evidence.")
             continue
         kept.append((label, i.unsupported_phrase))
 

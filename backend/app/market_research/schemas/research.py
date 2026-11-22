@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import Field, field_validator, model_validator
+from pydantic import Field, field_validator, model_validator, BaseModel
 
 from .base import StrictModel
 
@@ -10,6 +10,14 @@ InformationType = Literal["fact", "estimate", "interpretation"]
 
 def _duplicates(ids: list[str]) -> list[str]:
     return sorted({i for i in ids if ids.count(i) > 1})
+
+class ResearchRequest(BaseModel):
+    query: str = Field(min_length=1)
+    research_path: str | None = None
+
+
+class ResearchResponse(BaseModel):
+    state: dict
 
 
 class ResearchQuestion(StrictModel):

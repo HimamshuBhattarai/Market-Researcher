@@ -46,11 +46,27 @@ def get_settings() -> Settings:
     json_mode = os.getenv("LLM_JSON_MODE", "auto").strip().lower()
     if json_mode not in {"auto", "on", "off"}:
         json_mode = "auto"
-    tavily_key = os.getenv("TAVILY_API_KEY", "").strip()
-    search_key = tavily_key or _require("SEARCH_API_KEY")
+    tavily_key = (
+        os.getenv("TAVILY_API_KEY", "").strip()
+        or os.getenv("SEARCH_API_KEY", "").strip()
+    )
+    if not tavily_key:
+        raise ConfigError(
+            "Missing environment variable TAVILY_API_KEY. "
+            "Copy .env.example to .env and fill it in."
+        )
+    search_key = tavily_key
 
     if provider == "groq":
-        key = _require("groq")
+        key = (
+            os.getenv("GROQ_API_KEY", "").strip()
+            or os.getenv("groq", "").strip()
+        )
+        if not key:
+            raise ConfigError(
+                "Missing environment variable GROQ_API_KEY. "
+                "Copy .env.example to .env and fill it in."
+            )
         model = os.getenv("GROQ_MODEL", "").strip() or "openai/gpt-oss-20b"
         base_url = GROQ_BASE_URL
         max_chars = 2000

@@ -16,6 +16,8 @@ WorkflowStatus = Literal[
     "failed",
 ]
 
+ResearchMode = Literal["live", "resumed"]
+
 
 class WorkflowState(StrictModel):
     # validate_assignment makes the revision cap and status values hold
@@ -27,6 +29,7 @@ class WorkflowState(StrictModel):
     draft: ResearchBrief | None = None
     critic_feedback: CriticFeedback | None = None
     revision_count: int = Field(default=0, ge=0, le=1)
+    research_mode: ResearchMode = "live"
     final_brief: ResearchBrief | None = None
     status: WorkflowStatus = "pending"
     error: str | None = None

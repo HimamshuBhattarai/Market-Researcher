@@ -1,4 +1,5 @@
 import re
+import logging
 from datetime import date
 from typing import Callable, Literal
 from urllib.parse import urlparse
@@ -16,8 +17,10 @@ from market_research.schemas import (
 )
 from market_research.schemas.base import StrictModel
 from market_research.research.planner import make_plan
-from market_research.research.search import SearchError, search_web
-from market_research.services.llm import LLMError, generate_structured
+from market_research.research.search import SearchError, SearchQuotaError, search_web
+from market_research.services.llm import LLMError, LLMQuotaError, generate_structured
+
+logger = logging.getLogger(__name__)
 
 SYSTEM = (
     "You are a careful research assistant. You only report what the provided "
@@ -346,8 +349,14 @@ def run_researcher(
                 found, dropped = _extract_findings(plan, q, source_ids, registry)
                 total_dropped += dropped
                 found_q.extend(found)
+            except (SearchQuotaError, LLMQuotaError):
+                raise
             except (SearchError, LLMError) as e:
-                print(f"[debug] {q.question_id} attempt {attempt} failed: {e}")
+                logger.debug(
+                    "Research attempt failed for %s: %s",
+                    q.question_id,
+                    type(e).__name__,
+                )
                 errored = True
                 break
 

@@ -1,5 +1,6 @@
 import json
 import re
+import logging
 
 from pydantic import Field
 
@@ -14,6 +15,8 @@ from market_research.schemas import (
 from market_research.schemas.base import StrictModel
 from market_research.agents.critic import HEDGE_WORDS, _attribution_issues
 from market_research.services.llm import LLMError, generate_structured
+
+logger = logging.getLogger(__name__)
 
 SYSTEM = (
     "You are a market research analyst writing a short, evidence-backed brief. "
@@ -203,10 +206,10 @@ def _sanitize(draft: _BriefDraft, research: ResearcherOutput):
             f"{by_id[i].claim} {by_id[i].evidence}" for i in ids
         ).lower()
         if c.name.strip().lower() not in support:
-            print(f"[debug] dropped competitor '{c.name}': not named in cited findings")
+            logger.debug("Dropped competitor: not named in cited findings.")
             continue
         if not any(by_id[i].scope == "target_geography" for i in ids):
-            print(f"[debug] dropped competitor '{c.name}': no valid in-geography evidence")
+            logger.debug("Dropped competitor: no valid in-geography evidence.")
             continue
         if c.name.strip().lower() in seen_names:
             continue
@@ -215,10 +218,7 @@ def _sanitize(draft: _BriefDraft, research: ResearcherOutput):
         if _WEBSITE_NAME.findall(description):
             publisher_names = _cited_publisher_names(ids, research)
             if not _source_names_match(description, publisher_names):
-                print(
-                    f"[debug] dropped competitor '{c.name}': website name "
-                    "is not from a cited source"
-                )
+                logger.debug("Dropped competitor: website name is not from a cited source.")
                 continue
         competitors.append(
             c.model_copy(
@@ -234,27 +234,21 @@ def _sanitize(draft: _BriefDraft, research: ResearcherOutput):
     for o in draft.key_observations:
         ids = [i for i in o.evidence_finding_ids if i in by_id]
         if not ids:
-            print(f"[debug] dropped observation with no valid citation: {o.text[:70]}")
+            logger.debug("Dropped observation with no valid citation.")
             continue
         scopes = {by_id[i].scope for i in ids}
         if "target_geography" in scopes and "broader_context" in scopes:
-            print(
-                f"[debug] dropped observation mixing target-geography and "
-                f"broader-context findings: {o.text[:70]}"
-            )
+            logger.debug("Dropped observation mixing target-geography and broader-context findings.")
             continue
         text = _strip_ids(o.text.strip())
         if _WEBSITE_NAME.findall(text):
             publisher_names = _cited_publisher_names(ids, research)
             if not _source_names_match(text, publisher_names):
-                print(
-                    f"[debug] dropped observation naming a website not from "
-                    f"a cited source: {text[:70]}"
-                )
+                logger.debug("Dropped observation naming a website not from a cited source.")
                 continue
         if all(by_id[i].scope == "broader_context" for i in ids):
             if geo and geo.lower() in text.lower():
-                print(f"[debug] dropped observation attributing broader data to {geo}: {text[:70]}")
+                logger.debug("Dropped observation attributing broader data to the target geography.")
                 continue
             text = f"Not specific to {geo or 'the target'}: {text}"
         observations.append(
@@ -495,10 +489,10 @@ Return JSON: {{"executive_summary": "..."}}"""
     size_sources = _market_size_sources(research)
 
     if not _numbers(summary) <= _numbers(obs_text + comp_text):
-        print("[debug] summary contained numbers not in the observations; using fallback")
+        logger.debug("Summary contained unsupported coverage; using fallback.")
         summary = _fallback_summary(research, competitors, local)
     if not _summary_covers_brief(summary, competitors, observations):
-        print("[debug] summary omitted brief topics; using fallback")
+        logger.debug("Summary omitted brief topics; using fallback.")
         summary = _fallback_summary(research, competitors, local)
     summary = _ensure_comparability_caveat(summary, size_sources)
 
@@ -513,7 +507,7 @@ Return JSON: {{"executive_summary": "..."}}"""
         missing_information=missing,
     )
     if _attribution_issues(attribution_brief, research):
-        print("[debug] summary had attribution problems; using fallback")
+        logger.debug("Summary had attribution problems; using fallback.")
         summary = _fallback_summary(research, competitors, local)
     return _ensure_comparability_caveat(summary, size_sources)
 

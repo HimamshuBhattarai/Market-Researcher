@@ -20,6 +20,10 @@ class LLMError(RuntimeError):
     pass
 
 
+class LLMQuotaError(LLMError):
+    pass
+
+
 @lru_cache(maxsize=1)
 def _openai_client() -> OpenAI:
     settings = get_settings()
@@ -50,7 +54,7 @@ def _complete_with_openai_compatible(
     else:
         initial_json_mode = not settings.llm_model.startswith("openai/gpt-oss")
 
-    last_error: Exception | None = None
+    last_error: Exception = LLMError("LLM returned an empty response.")
     json_mode = initial_json_mode and not _json_mode_disabled
 
     def make_request(use_json_mode: bool):
@@ -76,6 +80,23 @@ def _complete_with_openai_compatible(
         except openai.APIStatusError as error:
             status = getattr(error, "status_code", None)
             detail = str(error)
+            retry_after = getattr(error, "retry_after", None)
+            if retry_after is None:
+                headers = getattr(error, "response", None)
+                headers = getattr(headers, "headers", None)
+                if headers:
+                    retry_after = headers.get("retry-after")
+            try:
+                retry_wait = float(retry_after) if retry_after is not None else 0
+            except (TypeError, ValueError):
+                retry_wait = 0
+            if (
+                status == 429
+                and ("daily limit" in detail.lower())
+            ) or retry_wait > 30:
+                raise LLMQuotaError(
+                    "The language-model provider's quota is used up."
+                ) from error
             json_error = (
                 status == 400
                 and "json" in detail.lower()
@@ -159,7 +180,7 @@ def generate_structured(
         {"role": "system", "content": system_msg},
         {"role": "user", "content": prompt},
     ]
-    last_error = None
+    last_error: Exception = LLMError("LLM returned an empty response.")
     for _ in range(max_retries + 1):
         raw = _complete_with_openai_compatible(messages)
         try:

@@ -1,8 +1,14 @@
 import streamlit as st
+import os
+import requests
 from html import escape
 
+from market_research.schemas import WorkflowState
 from market_research.agents.orchestrator import run_pipeline
-from market_research.config import ConfigError, get_settings
+from market_research.config import ConfigError
+
+
+API_URL = os.getenv("MARKET_RESEARCH_API_URL", "").strip() or None
 
 
 st.set_page_config(
@@ -382,61 +388,111 @@ if run_clicked:
             "text": "Enter a company or industry before starting a run.",
         }
     else:
-        try:
-            get_settings()
-        except ConfigError as error:
-            st.session_state.ui_error = {
-                "kind": "config",
-                "text": (
-                    f"{error} Copy .env.example to .env, fill in the required values "
-                    "and restart the app."
-                ),
-            }
-        else:
-            st.session_state.research_running = True
-            st.rerun()
+        st.session_state.research_running = True
+        st.rerun()
 
 if st.session_state.research_running:
     progress_placeholder = st.empty()
     message_placeholder = st.empty()
     render_progress(0, "Starting research")
 
-    def on_progress(message: str) -> None:
-        render_progress(stage_index_from_message(message), message)
-
     try:
-        workflow_state = run_pipeline(
-            st.session_state.research_query,
-            on_progress=on_progress,
-        )
-        if workflow_state.status == "failed":
-            st.session_state.ui_error = {
-                "kind": "failed",
-                "text": (
-                    f"{workflow_state.error or 'The workflow could not complete the run.'} "
-                    "Check API keys and credits, or use another provider."
-                ),
-            }
-        else:
-            st.session_state.workflow_state = workflow_state
-    except Exception as error:
-        if isinstance(error, ConfigError):
-            message = (
-                f"{error} Copy .env.example to .env, fill in the required values "
-                "and restart the app."
+        if API_URL:
+            progress_placeholder.markdown(
+                '<div class="progress-line"><span class="progress-stage current">Running</span></div>',
+                unsafe_allow_html=True,
             )
-        else:
-            message = (
-                f"{str(error) or 'The workflow could not complete the run.'} "
-                "Check API keys and credits, or use another provider."
+            message_placeholder.markdown(
+                '<p class="progress-message">Running, this can take one to three minutes</p>',
+                unsafe_allow_html=True,
             )
+            try:
+                response = requests.post(
+                    f"{API_URL.rstrip('/')}/api/research",
+                    json={"query": st.session_state.research_query},
+                    timeout=600,
+                )
+            except requests.Timeout:
+                st.session_state.ui_error = {
+                    "kind": "failed",
+                    "text": "The research API request timed out after ten minutes.",
+                }
+            except requests.RequestException as error:
+                st.session_state.ui_error = {
+                    "kind": "failed",
+                    "text": f"Could not reach the research API: {error}",
+                }
+            else:
+                if response.status_code >= 400:
+                    detail = response.json().get("detail", "The API request failed.")
+                    if isinstance(detail, dict):
+                        detail = detail.get("message", str(detail))
+                    st.session_state.ui_error = {
+                        "kind": "config" if response.status_code == 503 else "failed",
+                        "text": str(detail),
+                    }
+                else:
+                    workflow_state = WorkflowState.model_validate(response.json()["state"])
+                    st.session_state.workflow_state = workflow_state
+                    if workflow_state.status == "failed":
+                        st.session_state.ui_error = {
+                            "kind": "failed",
+                            "text": (
+                                f"{workflow_state.error or 'The workflow could not complete the run.'} "
+                                "Check API keys and credits, or use another provider."
+                            ),
+                        }
+        else:
+            def on_progress(message: str) -> None:
+                render_progress(stage_index_from_message(message), message)
+
+            try:
+                workflow_state = run_pipeline(
+                    st.session_state.research_query,
+                    on_progress=on_progress,
+                )
+                st.session_state.workflow_state = workflow_state
+                if workflow_state.status == "failed":
+                    st.session_state.ui_error = {
+                        "kind": "failed",
+                        "text": (
+                            f"{workflow_state.error or 'The workflow could not complete the run.'} "
+                            "Check API keys and credits, or use another provider."
+                        ),
+                    }
+            except ConfigError as error:
+                st.session_state.ui_error = {
+                    "kind": "config",
+                    "text": f"{error}",
+                }
+    except requests.RequestException as error:
         st.session_state.ui_error = {
             "kind": "failed",
-            "text": message,
+            "text": (
+                f"Could not reach the research API: {error}. "
+                "Start FastAPI and retry."
+            ),
+        }
+    except Exception as error:
+        st.session_state.ui_error = {
+            "kind": "failed",
+            "text": (
+                f"The API response could not be processed: {error}. "
+                "Check API keys and credits, or use another provider."
+            ),
         }
     finally:
         st.session_state.research_running = False
         st.rerun()
+
+
+def research_mode_notice(research_mode: str) -> str:
+    if research_mode == "resumed":
+        return (
+            "This brief was produced from saved research data, "
+            "not from a new live search."
+        )
+    return ""
 
 
 def build_brief_markdown(state) -> str:
@@ -446,10 +502,7 @@ def build_brief_markdown(state) -> str:
 
     query = getattr(state, "query", st.session_state.research_query)
     missing = list(getattr(brief, "missing_information", []) or [])
-    resumed = any(
-        "saved research" in item.lower() or "resumed" in item.lower()
-        for item in missing
-    )
+    resumed = getattr(state, "research_mode", "live") == "resumed"
     lines = [
         f"# {brief.subject}",
         "",
@@ -529,22 +582,10 @@ def render_brief(state) -> None:
     )
 
     mode = getattr(state, "research_mode", "live")
-    mode_lower = str(mode).lower()
-    resumed = mode_lower == "resumed" or any(
-        "saved research" in item.lower() or "resumed" in item.lower()
-        for item in missing
-    )
-    sample = mode_lower in {"sample", "sample data"}
-    if resumed:
+    mode_notice = research_mode_notice(mode)
+    if mode_notice:
         st.markdown(
-            '<p class="mode-notice">This brief was produced from saved research data, '
-            'not from a new live search.</p>',
-            unsafe_allow_html=True,
-        )
-    elif sample:
-        st.markdown(
-            '<p class="mode-notice">This brief was produced from sample data, '
-            'not from a new live search.</p>',
+            f'<p class="mode-notice">{escape(mode_notice)}</p>',
             unsafe_allow_html=True,
         )
     else:

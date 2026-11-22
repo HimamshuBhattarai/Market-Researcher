@@ -13,11 +13,11 @@ from .research import (
     ResearcherOutput,
     Source,
 )
-from .workflow import WorkflowState, WorkflowStatus
+from .workflow import ResearchMode, WorkflowState, WorkflowStatus
 
 __all__ = [
     "BriefCompetitor", "CriticFeedback", "KeyObservation", "ResearchBrief",
     "check_brief_references", "ExtractedFinding", "ResearchFinding",
     "ResearchPlan", "ResearchQuestion", "ResearcherOutput", "Source",
-    "WorkflowState", "WorkflowStatus",
+    "ResearchMode", "WorkflowState", "WorkflowStatus",
 ]
