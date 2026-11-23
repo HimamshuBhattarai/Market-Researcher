@@ -15,8 +15,6 @@ wheels/
 !.env.example
 
 # Generated and local files
-outputs/
-**/outputs/
 .pytest_cache/
 *.local.md
 notes/

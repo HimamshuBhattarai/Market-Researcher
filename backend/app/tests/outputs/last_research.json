@@ -1,0 +1,45 @@
+{
+  "plan": {
+    "subject": "Food delivery",
+    "domain": "Food delivery",
+    "geography": "Nepal",
+    "research_dimensions": [
+      "Competition"
+    ],
+    "research_questions": [
+      {
+        "question_id": "q1",
+        "question": "Which companies operate in Nepal?",
+        "research_dimension": "Competition",
+        "relevant_metrics": []
+      }
+    ],
+    "required_metrics": []
+  },
+  "findings": [
+    {
+      "claim": "Pathao operates in Nepal.",
+      "evidence": "Pathao provides food delivery in Nepal.",
+      "source_ids": [
+        "S1"
+      ],
+      "confidence": "high",
+      "information_type": "fact",
+      "scope": "target_geography",
+      "finding_id": "F1",
+      "research_question_id": "q1"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "Market report",
+      "url": "https://example.com/report",
+      "publisher": "Example Publisher",
+      "publication_date": null,
+      "accessed_date": "2026-11-22",
+      "source_type": "article"
+    }
+  ],
+  "missing_information": []
+}

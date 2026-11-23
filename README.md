@@ -13,29 +13,28 @@ Four roles run in sequence and pass structured (Pydantic) data to each other:
 
 ## Setup
 
-You need Python 3.13 or newer, [uv](https://docs.astral.sh/uv/getting-started/installation/), and two free API keys: one from [Groq](https://console.groq.com) and one from [Tavily](https://app.tavily.com).
+You need Python 3.13 or newer, [uv](https://docs.astral.sh/uv/getting-started/installation/), and two free API keys: one from [Groq](https://console.groq.com/keys) and one from [Tavily](https://app.tavily.com/home).
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
-uv venv          # creates the .venv folder
+git clone https://github.com/HimamshuBhattarai/Market-Researcher
+cd Market-Researcher
+uv venv          
+.venv/Scripts/activate # Activates the venv
 uv sync          # installs the dependencies into it
 ```
 
 Create your `.env` file from the template and add your two keys:
 
 ```bash
-cp .env.example .env        # Windows PowerShell: copy .env.example .env
+cp .env.example .env
 ```
 
 ```
 GROQ_API_KEY=your-groq-key
-TAVILY_API_KEY=your-tavily-key
+SEARCH_API_KEY=your-tavily-key
 ```
 
-`.env` is never committed. You do not need to activate the virtual environment, because `uv run` uses it automatically.
-
-Optional settings: `GROQ_MODEL` (default `openai/gpt-oss-20b`), and `LLM_PROVIDER=ollama` with `OLLAMA_MODEL` to use a local Ollama model instead of Groq (weaker results).
+Optional settings: `GROQ_MODEL` (default `openai/gpt-oss-20b`), and `LLM_PROVIDER=ollama` with `OLLAMA_MODEL` to use a local Ollama model instead of Groq (weaker results). Code supports for both the LLM provider(we can add a fallback API, but I finished all my credits for Free-tier API)
 
 ## Run
 
@@ -46,7 +45,7 @@ uv run streamlit run app.py
 
 Open http://localhost:8501, enter a company or industry, and click **Run research**. A run takes a few minutes and shows the current stage. Stop with Ctrl+C.
 
-Optional API (same workflow, separate process):
+For running backend
 
 ```bash
 cd backend/app
@@ -55,9 +54,6 @@ uv run uvicorn main:app --reload
 
 Documentation is at http://127.0.0.1:8000/docs, and the endpoint is `POST /api/research` with a body such as `{"query": "Analyze the food delivery market in Nepal."}`.
 
-## Sample output
-
-`backend/app/samples/` holds example results. `sample_output.md` and `sample_output.json` are a brief on the India food delivery market, produced from research collected by live search on 2026-11-21 and re-run through the analyst and critic. <!-- VERIFY: add sample_output_nepal.md and how it was produced, or delete that file from the repo. -->
 
 ## Tests
 
@@ -65,7 +61,6 @@ Documentation is at http://127.0.0.1:8000/docs, and the endpoint is `POST /api/r
 cd backend/app
 uv run pytest
 ```
-<!-- VERIFY: run this exact command once and confirm the tests pass. -->
 
 The tests run offline and use no API credits.
 
@@ -86,9 +81,12 @@ The tests run offline and use no API credits.
 
 ```
 backend/app/app.py                    Streamlit page
-backend/app/main.py                   FastAPI app (optional)
+backend/app/main.py                   FastAPI app
 backend/app/market_research/          agents, research, schemas, services, config
-backend/app/samples/                  example outputs
 backend/app/tests/                    offline tests
 .env.example                          configuration template
 ```
+
+## Note
+
+I built this within a short deadline and tested it mainly on the food delivery market in Nepal and India, so it may have flaws I did not catch. If something does not work as described here, please let me know.
